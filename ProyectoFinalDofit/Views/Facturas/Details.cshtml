@@ -1,0 +1,58 @@
+﻿@model ProyectoFinalDofit.Models.Facturas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Facturas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero_Factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero_Factura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedores.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedores.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Movimientos.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Movimientos.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trabajadores.Codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Factura_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

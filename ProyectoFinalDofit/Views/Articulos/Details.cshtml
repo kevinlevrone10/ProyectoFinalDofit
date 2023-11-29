@@ -1,0 +1,90 @@
+﻿@model ProyectoFinalDofit.Models.Articulos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Articulos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Costo_Unitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Costo_Unitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio_Venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio_Venta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Costo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Costo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Linea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Linea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Articulo_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

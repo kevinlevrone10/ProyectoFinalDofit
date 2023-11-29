@@ -1,0 +1,867 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GimnasiofitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Articulos">
+          <Key>
+            <PropertyRef Name="Articulo_Id" />
+          </Key>
+          <Property Name="Articulo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Costo_Unitario" Type="float" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Precio_Venta" Type="float" Nullable="false" />
+          <Property Name="Total_Costo" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Categoria" Type="varchar" MaxLength="10" />
+          <Property Name="Linea" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Cliente_Id" />
+          </Key>
+          <Property Name="Cliente_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Sexo_Id" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura_Productos">
+          <Key>
+            <PropertyRef Name="Factura_Producto_Id" />
+          </Key>
+          <Property Name="Factura_Producto_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Costo_Unitario" Type="float" Nullable="false" />
+          <Property Name="Factura_Id" Type="int" Nullable="false" />
+          <Property Name="Articulo_Id" Type="int" Nullable="false" />
+          <Property Name="Costo_Total" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="Factura_Id" />
+          </Key>
+          <Property Name="Factura_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numero_Factura" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Trabajador_Id" Type="int" Nullable="false" />
+          <Property Name="Proveedor_Id" Type="int" Nullable="false" />
+          <Property Name="Tipo_Movimiento_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plan_Clientes">
+          <Key>
+            <PropertyRef Name="Plan_Clientes_Id" />
+          </Key>
+          <Property Name="Plan_Clientes_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cantidad_Dia" Type="smallint" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="Proveedor_Id" />
+          </Key>
+          <Property Name="Proveedor_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="RUC" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sexo">
+          <Key>
+            <PropertyRef Name="Sexo_Id" />
+          </Key>
+          <Property Name="Sexo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suscripciones">
+          <Key>
+            <PropertyRef Name="Suscripcion_Id" />
+          </Key>
+          <Property Name="Suscripcion_Id" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Numero_Suscripcion" Type="int" Nullable="false" />
+          <Property Name="Fecha_Inicio" Type="date" Nullable="false" />
+          <Property Name="Fecha_Finalizacion" Type="date" Nullable="false" />
+          <Property Name="Costo" Type="char" MaxLength="10" />
+          <Property Name="Descuento" Type="float" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Cliente_Id" Type="int" Nullable="false" />
+          <Property Name="Plan_Clientes_Id" Type="int" Nullable="false" />
+          <Property Name="Trabajador_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Movimientos">
+          <Key>
+            <PropertyRef Name="Tipo_Movimiento_Id" />
+          </Key>
+          <Property Name="Tipo_Movimiento_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Salida_Entrada" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trabajadores">
+          <Key>
+            <PropertyRef Name="Trabajador_Id" />
+          </Key>
+          <Property Name="Trabajador_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Turno_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Turnos">
+          <Key>
+            <PropertyRef Name="Turno_Id" />
+          </Key>
+          <Property Name="Turno_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Visitas">
+          <Key>
+            <PropertyRef Name="Visita_Id" />
+          </Key>
+          <Property Name="Visita_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Suscripcion_Id" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Trabajador_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Sexo">
+          <End Role="Sexo" Type="Self.Sexo" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sexo">
+              <PropertyRef Name="Sexo_Id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="Sexo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefArticulo44">
+          <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+          <End Role="Factura_Productos" Type="Self.Factura_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articulos">
+              <PropertyRef Name="Articulo_Id" />
+            </Principal>
+            <Dependent Role="Factura_Productos">
+              <PropertyRef Name="Articulo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefCliente14">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Cliente_Id" />
+            </Principal>
+            <Dependent Role="Suscripciones">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefFactura43">
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+          <End Role="Factura_Productos" Type="Self.Factura_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="Factura_Id" />
+            </Principal>
+            <Dependent Role="Factura_Productos">
+              <PropertyRef Name="Factura_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefPlan_Clientes15">
+          <End Role="Plan_Clientes" Type="Self.Plan_Clientes" Multiplicity="1" />
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan_Clientes">
+              <PropertyRef Name="Plan_Clientes_Id" />
+            </Principal>
+            <Dependent Role="Suscripciones">
+              <PropertyRef Name="Plan_Clientes_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefProveedor39">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="Proveedor_Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Proveedor_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefSuscripcion19">
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="1" />
+          <End Role="Visitas" Type="Self.Visitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suscripciones">
+              <PropertyRef Name="Suscripcion_Id" />
+            </Principal>
+            <Dependent Role="Visitas">
+              <PropertyRef Name="Suscripcion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTipo_Movimiento41">
+          <End Role="Tipo_Movimientos" Type="Self.Tipo_Movimientos" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Movimientos">
+              <PropertyRef Name="Tipo_Movimiento_Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Tipo_Movimiento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTrabajador16">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="Trabajador_Id" />
+            </Principal>
+            <Dependent Role="Suscripciones">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTrabajador20">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
+          <End Role="Visitas" Type="Self.Visitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="Trabajador_Id" />
+            </Principal>
+            <Dependent Role="Visitas">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTrabajador37">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="Trabajador_Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTurno36">
+          <End Role="Turnos" Type="Self.Turnos" Multiplicity="1" />
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turnos">
+              <PropertyRef Name="Turno_Id" />
+            </Principal>
+            <Dependent Role="Trabajadores">
+              <PropertyRef Name="Turno_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GimnasiofitModelStoreContainer">
+          <EntitySet Name="Articulos" EntityType="Self.Articulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factura_Productos" EntityType="Self.Factura_Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facturas" EntityType="Self.Facturas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plan_Clientes" EntityType="Self.Plan_Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suscripciones" EntityType="Self.Suscripciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Movimientos" EntityType="Self.Tipo_Movimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turnos" EntityType="Self.Turnos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visitas" EntityType="Self.Visitas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Sexo" Association="Self.FK_Sexo">
+            <End Role="Sexo" EntitySet="Sexo" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="RefArticulo44" Association="Self.RefArticulo44">
+            <End Role="Articulos" EntitySet="Articulos" />
+            <End Role="Factura_Productos" EntitySet="Factura_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="RefCliente14" Association="Self.RefCliente14">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="RefFactura43" Association="Self.RefFactura43">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Factura_Productos" EntitySet="Factura_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="RefPlan_Clientes15" Association="Self.RefPlan_Clientes15">
+            <End Role="Plan_Clientes" EntitySet="Plan_Clientes" />
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="RefProveedor39" Association="Self.RefProveedor39">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="RefSuscripcion19" Association="Self.RefSuscripcion19">
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+            <End Role="Visitas" EntitySet="Visitas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTipo_Movimiento41" Association="Self.RefTipo_Movimiento41">
+            <End Role="Tipo_Movimientos" EntitySet="Tipo_Movimientos" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTrabajador16" Association="Self.RefTrabajador16">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="RefTrabajador20" Association="Self.RefTrabajador20">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Visitas" EntitySet="Visitas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTrabajador37" Association="Self.RefTrabajador37">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTurno36" Association="Self.RefTurno36">
+            <End Role="Turnos" EntitySet="Turnos" />
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GimnasiofitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Articulos">
+          <Key>
+            <PropertyRef Name="Articulo_Id" />
+          </Key>
+          <Property Name="Articulo_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Costo_Unitario" Type="Double" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Precio_Venta" Type="Double" Nullable="false" />
+          <Property Name="Total_Costo" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Categoria" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Linea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Factura_Productos" Relationship="Self.RefArticulo44" FromRole="Articulos" ToRole="Factura_Productos" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Cliente_Id" />
+          </Key>
+          <Property Name="Cliente_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo_Id" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Sexo" Relationship="Self.FK_Sexo" FromRole="Clientes" ToRole="Sexo" />
+          <NavigationProperty Name="Suscripciones" Relationship="Self.RefCliente14" FromRole="Clientes" ToRole="Suscripciones" />
+        </EntityType>
+        <EntityType Name="Factura_Productos">
+          <Key>
+            <PropertyRef Name="Factura_Producto_Id" />
+          </Key>
+          <Property Name="Factura_Producto_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Costo_Unitario" Type="Double" Nullable="false" />
+          <Property Name="Factura_Id" Type="Int32" Nullable="false" />
+          <Property Name="Articulo_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Articulos" Relationship="Self.RefArticulo44" FromRole="Factura_Productos" ToRole="Articulos" />
+          <NavigationProperty Name="Facturas" Relationship="Self.RefFactura43" FromRole="Factura_Productos" ToRole="Facturas" />
+          <Property Name="Costo_Total" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="Factura_Id" />
+          </Key>
+          <Property Name="Factura_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero_Factura" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Trabajador_Id" Type="Int32" Nullable="false" />
+          <Property Name="Proveedor_Id" Type="Int32" Nullable="false" />
+          <Property Name="Tipo_Movimiento_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Factura_Productos" Relationship="Self.RefFactura43" FromRole="Facturas" ToRole="Factura_Productos" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.RefProveedor39" FromRole="Facturas" ToRole="Proveedores" />
+          <NavigationProperty Name="Tipo_Movimientos" Relationship="Self.RefTipo_Movimiento41" FromRole="Facturas" ToRole="Tipo_Movimientos" />
+          <NavigationProperty Name="Trabajadores" Relationship="Self.RefTrabajador37" FromRole="Facturas" ToRole="Trabajadores" />
+        </EntityType>
+        <EntityType Name="Plan_Clientes">
+          <Key>
+            <PropertyRef Name="Plan_Clientes_Id" />
+          </Key>
+          <Property Name="Plan_Clientes_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad_Dia" Type="Int16" Nullable="false" />
+          <Property Name="Costo" Type="Double" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Suscripciones" Relationship="Self.RefPlan_Clientes15" FromRole="Plan_Clientes" ToRole="Suscripciones" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="Proveedor_Id" />
+          </Key>
+          <Property Name="Proveedor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RUC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.RefProveedor39" FromRole="Proveedores" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Sexo">
+          <Key>
+            <PropertyRef Name="Sexo_Id" />
+          </Key>
+          <Property Name="Sexo_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Sexo" FromRole="Sexo" ToRole="Clientes" />
+        </EntityType>
+        <EntityType Name="Suscripciones">
+          <Key>
+            <PropertyRef Name="Suscripcion_Id" />
+          </Key>
+          <Property Name="Suscripcion_Id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Numero_Suscripcion" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Inicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_Finalizacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Costo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Descuento" Type="Double" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Cliente_Id" Type="Int32" Nullable="false" />
+          <Property Name="Plan_Clientes_Id" Type="Int32" Nullable="false" />
+          <Property Name="Trabajador_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.RefCliente14" FromRole="Suscripciones" ToRole="Clientes" />
+          <NavigationProperty Name="Plan_Clientes" Relationship="Self.RefPlan_Clientes15" FromRole="Suscripciones" ToRole="Plan_Clientes" />
+          <NavigationProperty Name="Visitas" Relationship="Self.RefSuscripcion19" FromRole="Suscripciones" ToRole="Visitas" />
+          <NavigationProperty Name="Trabajadores" Relationship="Self.RefTrabajador16" FromRole="Suscripciones" ToRole="Trabajadores" />
+        </EntityType>
+        <EntityType Name="Tipo_Movimientos">
+          <Key>
+            <PropertyRef Name="Tipo_Movimiento_Id" />
+          </Key>
+          <Property Name="Tipo_Movimiento_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salida_Entrada" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.RefTipo_Movimiento41" FromRole="Tipo_Movimientos" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Trabajadores">
+          <Key>
+            <PropertyRef Name="Trabajador_Id" />
+          </Key>
+          <Property Name="Trabajador_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Turno_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.RefTrabajador37" FromRole="Trabajadores" ToRole="Facturas" />
+          <NavigationProperty Name="Suscripciones" Relationship="Self.RefTrabajador16" FromRole="Trabajadores" ToRole="Suscripciones" />
+          <NavigationProperty Name="Visitas" Relationship="Self.RefTrabajador20" FromRole="Trabajadores" ToRole="Visitas" />
+          <NavigationProperty Name="Turnos" Relationship="Self.RefTurno36" FromRole="Trabajadores" ToRole="Turnos" />
+        </EntityType>
+        <EntityType Name="Turnos">
+          <Key>
+            <PropertyRef Name="Turno_Id" />
+          </Key>
+          <Property Name="Turno_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Trabajadores" Relationship="Self.RefTurno36" FromRole="Turnos" ToRole="Trabajadores" />
+        </EntityType>
+        <EntityType Name="Visitas">
+          <Key>
+            <PropertyRef Name="Visita_Id" />
+          </Key>
+          <Property Name="Visita_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Suscripcion_Id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Trabajador_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Suscripciones" Relationship="Self.RefSuscripcion19" FromRole="Visitas" ToRole="Suscripciones" />
+          <NavigationProperty Name="Trabajadores" Relationship="Self.RefTrabajador20" FromRole="Visitas" ToRole="Trabajadores" />
+        </EntityType>
+        <Association Name="RefArticulo44">
+          <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+          <End Role="Factura_Productos" Type="Self.Factura_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articulos">
+              <PropertyRef Name="Articulo_Id" />
+            </Principal>
+            <Dependent Role="Factura_Productos">
+              <PropertyRef Name="Articulo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sexo">
+          <End Role="Sexo" Type="Self.Sexo" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sexo">
+              <PropertyRef Name="Sexo_Id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="Sexo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefCliente14">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Cliente_Id" />
+            </Principal>
+            <Dependent Role="Suscripciones">
+              <PropertyRef Name="Cliente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefFactura43">
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+          <End Role="Factura_Productos" Type="Self.Factura_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="Factura_Id" />
+            </Principal>
+            <Dependent Role="Factura_Productos">
+              <PropertyRef Name="Factura_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefProveedor39">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="Proveedor_Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Proveedor_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTipo_Movimiento41">
+          <End Role="Tipo_Movimientos" Type="Self.Tipo_Movimientos" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Movimientos">
+              <PropertyRef Name="Tipo_Movimiento_Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Tipo_Movimiento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTrabajador37">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
+          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="Trabajador_Id" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefPlan_Clientes15">
+          <End Role="Plan_Clientes" Type="Self.Plan_Clientes" Multiplicity="1" />
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan_Clientes">
+              <PropertyRef Name="Plan_Clientes_Id" />
+            </Principal>
+            <Dependent Role="Suscripciones">
+              <PropertyRef Name="Plan_Clientes_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefSuscripcion19">
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="1" />
+          <End Role="Visitas" Type="Self.Visitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suscripciones">
+              <PropertyRef Name="Suscripcion_Id" />
+            </Principal>
+            <Dependent Role="Visitas">
+              <PropertyRef Name="Suscripcion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTrabajador16">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
+          <End Role="Suscripciones" Type="Self.Suscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="Trabajador_Id" />
+            </Principal>
+            <Dependent Role="Suscripciones">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTrabajador20">
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="1" />
+          <End Role="Visitas" Type="Self.Visitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajadores">
+              <PropertyRef Name="Trabajador_Id" />
+            </Principal>
+            <Dependent Role="Visitas">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTurno36">
+          <End Role="Turnos" Type="Self.Turnos" Multiplicity="1" />
+          <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turnos">
+              <PropertyRef Name="Turno_Id" />
+            </Principal>
+            <Dependent Role="Trabajadores">
+              <PropertyRef Name="Turno_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GimnasiofitEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Articulos" EntityType="Self.Articulos" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Factura_Productos" EntityType="Self.Factura_Productos" />
+          <EntitySet Name="Facturas" EntityType="Self.Facturas" />
+          <EntitySet Name="Plan_Clientes" EntityType="Self.Plan_Clientes" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" />
+          <EntitySet Name="Sexo" EntityType="Self.Sexo" />
+          <EntitySet Name="Suscripciones" EntityType="Self.Suscripciones" />
+          <EntitySet Name="Tipo_Movimientos" EntityType="Self.Tipo_Movimientos" />
+          <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" />
+          <EntitySet Name="Turnos" EntityType="Self.Turnos" />
+          <EntitySet Name="Visitas" EntityType="Self.Visitas" />
+          <AssociationSet Name="RefArticulo44" Association="Self.RefArticulo44">
+            <End Role="Articulos" EntitySet="Articulos" />
+            <End Role="Factura_Productos" EntitySet="Factura_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sexo" Association="Self.FK_Sexo">
+            <End Role="Sexo" EntitySet="Sexo" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="RefCliente14" Association="Self.RefCliente14">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="RefFactura43" Association="Self.RefFactura43">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Factura_Productos" EntitySet="Factura_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="RefProveedor39" Association="Self.RefProveedor39">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTipo_Movimiento41" Association="Self.RefTipo_Movimiento41">
+            <End Role="Tipo_Movimientos" EntitySet="Tipo_Movimientos" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTrabajador37" Association="Self.RefTrabajador37">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="RefPlan_Clientes15" Association="Self.RefPlan_Clientes15">
+            <End Role="Plan_Clientes" EntitySet="Plan_Clientes" />
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="RefSuscripcion19" Association="Self.RefSuscripcion19">
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+            <End Role="Visitas" EntitySet="Visitas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTrabajador16" Association="Self.RefTrabajador16">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Suscripciones" EntitySet="Suscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="RefTrabajador20" Association="Self.RefTrabajador20">
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+            <End Role="Visitas" EntitySet="Visitas" />
+          </AssociationSet>
+          <AssociationSet Name="RefTurno36" Association="Self.RefTurno36">
+            <End Role="Turnos" EntitySet="Turnos" />
+            <End Role="Trabajadores" EntitySet="Trabajadores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GimnasiofitModelStoreContainer" CdmEntityContainer="GimnasiofitEntities">
+          <EntitySetMapping Name="Articulos">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Articulos">
+              <MappingFragment StoreEntitySet="Articulos">
+                <ScalarProperty Name="Articulo_Id" ColumnName="Articulo_Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Costo_Unitario" ColumnName="Costo_Unitario" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio_Venta" ColumnName="Precio_Venta" />
+                <ScalarProperty Name="Total_Costo" ColumnName="Total_Costo" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Linea" ColumnName="Linea" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Cliente_Id" ColumnName="Cliente_Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Sexo_Id" ColumnName="Sexo_Id" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factura_Productos">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Factura_Productos">
+              <MappingFragment StoreEntitySet="Factura_Productos">
+                <ScalarProperty Name="Costo_Total" ColumnName="Costo_Total" />
+                <ScalarProperty Name="Factura_Producto_Id" ColumnName="Factura_Producto_Id" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Costo_Unitario" ColumnName="Costo_Unitario" />
+                <ScalarProperty Name="Factura_Id" ColumnName="Factura_Id" />
+                <ScalarProperty Name="Articulo_Id" ColumnName="Articulo_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facturas">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Facturas">
+              <MappingFragment StoreEntitySet="Facturas">
+                <ScalarProperty Name="Factura_Id" ColumnName="Factura_Id" />
+                <ScalarProperty Name="Numero_Factura" ColumnName="Numero_Factura" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+                <ScalarProperty Name="Proveedor_Id" ColumnName="Proveedor_Id" />
+                <ScalarProperty Name="Tipo_Movimiento_Id" ColumnName="Tipo_Movimiento_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plan_Clientes">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Plan_Clientes">
+              <MappingFragment StoreEntitySet="Plan_Clientes">
+                <ScalarProperty Name="Plan_Clientes_Id" ColumnName="Plan_Clientes_Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad_Dia" ColumnName="Cantidad_Dia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Proveedores">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="Proveedor_Id" ColumnName="Proveedor_Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sexo">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Sexo">
+              <MappingFragment StoreEntitySet="Sexo">
+                <ScalarProperty Name="Sexo_Id" ColumnName="Sexo_Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suscripciones">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Suscripciones">
+              <MappingFragment StoreEntitySet="Suscripciones">
+                <ScalarProperty Name="Suscripcion_Id" ColumnName="Suscripcion_Id" />
+                <ScalarProperty Name="Numero_Suscripcion" ColumnName="Numero_Suscripcion" />
+                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Fecha_Finalizacion" ColumnName="Fecha_Finalizacion" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Cliente_Id" ColumnName="Cliente_Id" />
+                <ScalarProperty Name="Plan_Clientes_Id" ColumnName="Plan_Clientes_Id" />
+                <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Movimientos">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Tipo_Movimientos">
+              <MappingFragment StoreEntitySet="Tipo_Movimientos">
+                <ScalarProperty Name="Tipo_Movimiento_Id" ColumnName="Tipo_Movimiento_Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Salida_Entrada" ColumnName="Salida_Entrada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajadores">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Trabajadores">
+              <MappingFragment StoreEntitySet="Trabajadores">
+                <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Turno_Id" ColumnName="Turno_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turnos">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Turnos">
+              <MappingFragment StoreEntitySet="Turnos">
+                <ScalarProperty Name="Turno_Id" ColumnName="Turno_Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visitas">
+            <EntityTypeMapping TypeName="GimnasiofitModel.Visitas">
+              <MappingFragment StoreEntitySet="Visitas">
+                <ScalarProperty Name="Visita_Id" ColumnName="Visita_Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Suscripcion_Id" ColumnName="Suscripcion_Id" />
+                <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
