@@ -15,16 +15,16 @@
             @Html.DisplayNameFor(model => model.Cantidad)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Costo_Unitario)
+            @("Costo unidad")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Articulos.Codigo)
+            @Html.DisplayNameFor(model => model.Articulos.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Facturas.Factura_Id)
+            @("Movimiento")
         </th>
         <th>
-            @("costo Total")
+            @("Monto Final")
         </th>
         <th></th>
     </tr>
@@ -38,10 +38,10 @@
             @Html.DisplayFor(modelItem => item.Costo_Unitario)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Articulos.Codigo)
+            @Html.DisplayFor(modelItem => item.Articulos.Descripcion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Facturas.Factura_Id)
+            @Html.DisplayFor(modelItem => item.Facturas.Tipo_Movimientos.Descripcion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Costo_Total)
@@ -49,7 +49,6 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Factura_Producto_Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Factura_Producto_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Factura_Producto_Id })
         </td>
     </tr>
 }
