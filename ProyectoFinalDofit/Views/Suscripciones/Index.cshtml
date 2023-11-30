@@ -4,78 +4,192 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
+    /* Your existing styles are replicated here */
+    :root {
+        --color-fondo: #EBF1F4;
+        --color-primario: #069cd2;
+        --color-blanco: #ffffff;
+        --color-negro: #2A3133;
+        --color-rojo: #e00202d2;
+        --color-verde: #16aa39;
+        --color-amarillo: #f0b607;
+    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero_Suscripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha_Inicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha_Finalizacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Costo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descuento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Clientes.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Plan_Clientes.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
-        </th>
-        <th></th>
-    </tr>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero_Suscripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha_Inicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha_Finalizacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Costo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descuento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Clientes.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Plan_Clientes.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trabajadores.Codigo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Suscripcion_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Suscripcion_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Suscripcion_Id })
-        </td>
-    </tr>
-}
+    html {
+        font-size: 62.5%;
+        font-family: 'Poppins', sans-serif;
+    }
 
-</table>
+    body {
+        font-size: 1.6rem;
+        background-color: var(--color-fondo);
+    }
+
+    h1, h2, h3 {
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .container {
+        width: 95%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: var(--color-verde);
+        color: var(--color-blanco);
+        font-size: 1.4rem;
+        border: none;
+        cursor: pointer;
+        column-gap: 70px;
+    }
+
+    .btn--details {
+        background-color: var(--color-amarillo);
+    }
+
+    .btn--delete {
+        background-color: var(--color-rojo);
+    }
+
+    .btn--top {
+        margin-top: 2rem;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: left;
+    }
+
+        .table thead {
+            background-color: #069cd2;
+            text-align: center; /* Alinea el texto al centro */
+        }
+
+        .table th {
+            padding: 18px 5px;
+            font-weight: 500;
+            color: #fff;
+            vertical-align: middle; /* Alinea verticalmente el texto al centro */
+        }
+
+        .table td {
+            padding: 10px 5px; /* Ajusta el espacio entre las celdas */
+        }
+
+    .product__h2 {
+        font-size: 35px;
+        margin-bottom: 20px; /* Ajusta el espacio entre el título y la tabla */
+        text-align: center; /* Alinea el texto al centro */
+    }
+</style>
+
+<section class="product section">
+    <div class="container">
+        <h2 class="product__h2">Membresias</h2>
+        @Html.ActionLink("Generar suscripcion", "Create", null, new { @class = "btn" })
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Numero_Suscripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha_Inicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha_Finalizacion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Costo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descuento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Activo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clientes.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Plan_Clientes.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
+                    </th>
+                    <th>
+                        Acciones a Realizar
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Numero_Suscripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha_Inicio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha_Finalizacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Costo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descuento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Activo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Clientes.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Plan_Clientes.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Trabajadores.Codigo)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Suscripcion_Id }, new { @class = "btn" })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.Suscripcion_Id }, new { @class = "btn btn--details" })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.Suscripcion_Id }, new { @class = "btn btn--delete" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
