@@ -10,44 +10,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-
 </head>
 
-<body class="body">
+<body class="login">
     <div class="container">
-        <div class="titles">
-            <h1 class="titles__h1">@ViewBag.Title</h1>
-            <p class="titles__p">Vitalidad Total: Tu Destino para una Vida Activa y Saludable"</p>
+        <div class="login__titles">
+            <h1 class="login__h1">@ViewBag.Title</h1>
+            <p class="login__p">Vitalidad Total: Tu Destino para una Vida Activa y Saludable</p>
         </div>
-        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form" }))
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login__form" }))
         {
             @Html.AntiForgeryToken()
 
-            <form class="form">
-                <div class="form__user">
-                    <svg width="25" height="25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 4.75a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 1 0 0-6.5z"></path>
-                        <path d="M6.848 19.25h10.305c1.141 0 2.021-.982 1.488-1.992C17.856 15.773 16.068 14 12 14s-5.856 1.773-6.64 3.258c-.534 1.01.346 1.992 1.487 1.992Z"></path>
-                    </svg>
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Usuario" })
-                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                </div>
+         <form class="login__form">
+            <div class="login__user">
+                <svg width="25" height="25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path d="M12 4.75a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 1 0 0-6.5z"></path>
+                    <path d="M6.848 19.25h10.305c1.141 0 2.021-.982 1.488-1.992C17.856 15.773 16.068 14 12 14s-5.856 1.773-6.64 3.258c-.534 1.01.346 1.992 1.487 1.992Z"></path>
+                </svg>
+                @Html.TextBoxFor(m => m.Email, new { @class = "login__input", placeholder = "Usuario" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
 
-                <div class="form__password">
-                    <svg width="25" height="25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.75 11.75a1 1 0 0 1 1-1h10.5a1 1 0 0 1 1 1v5.5a2 2 0 0 1-2 2h-8.5a2 2 0 0 1-2-2v-5.5Z"></path>
-                        <path d="M7.75 10.5v-.157c0-1.562-.094-3.302.996-4.42C9.368 5.288 10.374 4.75 12 4.75c1.626 0 2.632.537 3.254 1.174 1.09 1.117.996 2.857.996 4.419v.157"></path>
-                    </svg>
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Contraseña" })
-                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                </div>
+         <div class="login__password">
+            <svg width="25" height="25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.75 11.75a1 1 0 0 1 1-1h10.5a1 1 0 0 1 1 1v5.5a2 2 0 0 1-2 2h-8.5a2 2 0 0 1-2-2v-5.5Z"></path>
+                <path d="M7.75 10.5v-.157c0-1.562-.094-3.302.996-4.42C9.368 5.288 10.374 4.75 12 4.75c1.626 0 2.632.537 3.254 1.174 1.09 1.117.996 2.857.996 4.419v.157"></path>
+            </svg>
+            @Html.PasswordFor(m => m.Password, new { @class = "login__input", placeholder = "Contraseña" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+         </div>
 
 
-                <button type="submit" class="form__btn">
-                    Ingresar
-                    <!-- Aquí va tu SVG -->
-                </button>
-            </form>
+         <button type="submit" class="login__btn">
+            Ingresar
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="m13.75 6.75 5.5 5.25-5.5 5.25"></path>
+                <path d="M19 12H4.75"></path>
+            </svg>
+         </button>
+    </form>
         }
 
     </div>
@@ -57,5 +59,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Styles.Render("~/Content/uza/customStyles")
-
 }

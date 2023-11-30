@@ -1,35 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-*{
+
+:root {
+    --color-fondo: #EBF1F4;
+    --color-primario: #069cd2;
+    --color-blanco: #ffffff;
+    --color-negro: #2A3133;
+    --color-rojo: #ff0101d2;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html{
+
+html {
     font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
     font-size: 1.6rem;
-    color: #fff;
+    background-color: var(--color-fondo);
 }
-h1, h2, h3{
+
+h1, h2, h3 {
     margin: 0;
 }
-.container{
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
     width: 95%;
     max-width: 1200px;
     margin: 0 auto;
 }
-.body {
+
+.section {
+    padding-top: 2rem;
+}
+/****** estilos del login  ******/
+.login {
     width: 100%;
     height: 100vh;
+    color: var(--color-blanco);
     background-image: url('https://i.pinimg.com/736x/fd/b6/0a/fdb60a9342f876ecc16b2be24b9255a5.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
 }
-.body::before{
+.login::before {
     content: '';
     position: absolute;
     z-index: -9;
@@ -40,61 +67,73 @@ h1, h2, h3{
     width: 100%;
     height: 100%;
 }
-.titles{
+
+.login__titles {
     padding-top: 10rem;
     text-align: center;
 }
-.titles__h1{
+
+.login__h1 {
     font-size: 4rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
-.titles__p{
+
+.login__p {
     max-width: 35ch;
     margin: 0 auto;
 }
-.form{
+
+.login__form {
     width: 100%;
     max-width: 450px;
     margin: 0 auto;
     margin-top: 5rem;
 }
-input::placeholder{
+
+.login__input::placeholder {
     color: rgb(207, 207, 207);
 }
-.form__user, .form__password{
+
+.login__user, .login__password {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 2rem;
     background-color: rgb(255 255 255 /.1);
 }
-.form__user{
+
+.login__user {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom: 2px solid rgb(255 255 255 /.2);
 }
-.form__password{
+
+.login__password {
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
-.form__user input, .form__password input{
+
+.login__input {
     background-color: transparent;
     border: none;
     outline: none;
     color: #fff;
     padding: 0px;
 }
-.form__forgot{
+
+.login__forgot {
     display: block;
     margin-top: 1rem;
     font-size: 1.3rem;
     color: rgb(255 255 255 /.7);
 }
-.form__forgot:hover{
-    color:#fff;
+
+.login__forgot:hover {
+    color: #fff;
 }
-.form__btn{
+
+.login__btn {
     margin-top: 2rem;
     width: 100%;
     border: none;
@@ -103,20 +142,211 @@ input::placeholder{
     padding: 1.5rem;
     border-radius: 99px;
     font-size: 1.8rem;
-
     display: flex;
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
-.form__new{
+
+.login__new {
     color: #fff;
     display: block;
     text-align: center;
     margin-top: 3rem;
     color: rgb(255 255 255 /.8);
 }
-.form__new:hover{
-    color:#fff;
+
+.login__new:hover {
+    color: #fff;
+}
+/*********************************/
+/*****  estilos del header  ******/
+
+.header {
+    width: 100%;
+    height: 7rem;
+    color: var(--color-primario);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    background-color: var(--color-blanco);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+@media screen and (max-width:1023px) {
+    .header__nav {
+        background-color: var(--color-blanco);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        box-shadow: 4px 0px 6px -1px rgb(0 0 0 / 0.1), 2px 0 6px -2px rgb(0 0 0 / 0.1);
+        padding: 7rem 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: translateX(-100%);
+        transition: all .3s ease;
+    }
+
+    .toggle {
+        transform: translateX(0%);
+    }
+}
+
+.header__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.header__link {
+    color: var(--color-negro);
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.header__link:hover {
+    color: var(--color-primario)
+}
+
+.header__link--color {
+    color: var(--color-primario);
+}
+
+.header__user {
+    color: var(--color-primario);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.header__user p {
+    display: flex;
+    align-items: center;
+    color: var(--color-negro);
+}
+
+.header__user a {
+    color: var(--color-rojo);
+    display: flex;
+    align-items: center;
+}
+
+.header__user a:hover {
+    text-decoration: underline;
+}
+
+.header__icon-menu {
+    cursor: pointer;
+}
+
+/******* estilos del panel ********/
+.panel__h1 {
+    color: #093448;
+    font-size: 4rem;
+}
+
+.panel__content {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.panel__card {
+    width: 100%;
+    height: 160px;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.panel__card:nth-child(1) {
+    background-color: var(--color-primario);
+}
+
+.panel__card:nth-child(2) {
+    background-color: #065BD1;
+    color: var(--color-blanco);
+}
+
+.panel__card:nth-child(3) {
+    background-color: #4D9066;
+    color: var(--color-blanco);
+}
+
+.panel__card:nth-child(4) {
+    background-color: #5565AE;
+    color: var(--color-blanco);
+}
+
+.panel__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.panel__h2 {
+    font-size: 1.8rem;
+}
+
+.panel__number {
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
+
+
+
+
+
+
+/***** responsive lg ::after 1024px *********/
+@media screen and (min-width:1024px) {
+    .header {
+        height: 9rem;
+    }
+
+    .header__nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .header__icon-menu {
+        display: none;
+    }
+
+    .header__menu {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .header__user {
+        padding-left: 5rem;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+    .panel__content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .panel__number {
+        font-weight: 700;
+        font-size: 4rem;
+    }
 }
