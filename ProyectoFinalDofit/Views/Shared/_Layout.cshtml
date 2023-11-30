@@ -1,24 +1,26 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title - Gimnasio Vitality</title>
+    @Styles.Render("~/Content/uza/customStyles")
     @Scripts.Render("~/bundles/modernizr")
+
+
 
 </head>
 <body>
-    
-    <div class="container body-content">
 
+    <div class="">
+    
         @RenderBody()
-       
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/uza/customScript")
     @RenderSection("scripts", required: false)
 </body>
 </html>
