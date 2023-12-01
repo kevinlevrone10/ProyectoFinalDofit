@@ -4,71 +4,64 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+@Styles.Render("~/Content/uza/customStyles")
 
+<style>
+    .custom-dropdown {
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+</style>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Clientes</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+<section class="newproduct section">
+    <div class="container">
+
+        <h2>Agregar Nuevo Miembro</h2>
+
+        @using (Html.BeginForm("Create", "Clientes", FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form__group">
+                <label class="form__label" for="Nombre">Nombre</label>
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form__input" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="form__group">
+                <label class="form__label" for="Apellido">Apellido</label>
+                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form__input" } })
                 @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="form__group">
+                <label class="form__label" for="Cedula">Cedula</label>
+                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form__input" } })
                 @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sexo_Id, "Sexo_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Sexo_Id", null, htmlAttributes: new { @class = "form-control" })
+            <div class="form__group">
+                <label class="form__label" for="Sexo_Id">Sexo</label>
+                @Html.DropDownList("Sexo_Id", null, htmlAttributes: new { @class = "form-control custom-dropdown" })
                 @Html.ValidationMessageFor(model => model.Sexo_Id, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Activo)
-                    @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
-                </div>
+            <div class="form__group">
+                <label class="form__label" for="Activo">Estado</label>
+                @Html.EditorFor(model => model.Activo, new { htmlAttributes = new { @class = "form__input form--check" } })
+                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form__group">
+                <input type="submit" value="Crear" class="btn" />
             </div>
+        }
+
+        <div>
+            <a href="@Url.Action("Index")" class="btn btn--details">Regresar</a>
         </div>
     </div>
-}
+</section>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

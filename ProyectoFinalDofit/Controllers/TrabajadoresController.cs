@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ProyectoFinalDofit.Controllers
 {
+    [Authorize]
     public class TrabajadoresController : Controller
     {
         private GimnasiofitEntities db = new GimnasiofitEntities();

@@ -4,87 +4,86 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@Styles.Render("~/Content/uza/customStyles")
 
-<div>
-    <h4>Suscripciones</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Numero_Suscripcion)
-        </dt>
+<section class="detailsproduct section">
+    <h2>Detalles de Suscripción</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Numero_Suscripcion)
-        </dd>
+    <div class="container">
+        <div>
+            <dl class="dl-horizontal">
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Numero_Suscripcion)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Numero_Suscripcion)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Inicio)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Fecha_Inicio)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Fecha_Inicio)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha_Inicio)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Fecha_Finalizacion)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Fecha_Finalizacion)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Finalizacion)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Costo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Costo)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha_Finalizacion)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Descuento)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Descuento)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Costo)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Activo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Activo)
+                    </dd>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Costo)
-        </dd>
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Clientes.Nombre)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Clientes.Nombre)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descuento)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Plan_Clientes.Descripcion)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Plan_Clientes.Descripcion)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descuento)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Trabajadores.Codigo)
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="btn--top">
+            <a href="@Url.Action("Index")" class="btn btn--details">Regresar</a>
+        </div>
+    </div>
+</section>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Activo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Clientes.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Clientes.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Plan_Clientes.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Plan_Clientes.Descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Trabajadores.Codigo)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Suscripcion_Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

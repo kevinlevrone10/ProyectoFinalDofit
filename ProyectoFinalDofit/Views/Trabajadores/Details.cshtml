@@ -4,63 +4,64 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@Styles.Render("~/Content/uza/customStyles")
 
-<div>
-    <h4>Trabajadores</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </dt>
+<section class="detailsproduct section">
+    <h2>Detalles de Trabajador</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Codigo)
-        </dd>
+    <div class="container">
+        <div>
+            <dl class="dl-horizontal">
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Codigo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Codigo)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Apellido)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Apellido)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Telefono)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Activo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Activo)
+                    </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Turnos.Descripcion)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Turnos.Descripcion)
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="btn--top">
+            <a href="@Url.Action("Index")" class="btn btn--details">Regresar</a>
+        </div>
+    </div>
+</section>
 
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Activo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Turnos.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Turnos.Descripcion)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Trabajador_Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

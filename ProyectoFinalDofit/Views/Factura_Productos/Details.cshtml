@@ -4,47 +4,50 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@Styles.Render("~/Content/uza/customStyles")
 
-<div>
-    <h4>Factura_Productos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
+<section class="detailsproduct section">
+    <h2>Detalles de Producto en Factura</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cantidad)
-        </dd>
+    <div class="container">
+        <div>
+            <dl class="dl-horizontal">
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cantidad)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Cantidad)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Costo_Unitario)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Costo_Unitario)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Costo_Unitario)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Costo_Unitario)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Articulos.Descripcion)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Articulos.Descripcion)
+                    </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Articulos.Descripcion)
-        </dt>
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Facturas.Factura_Id)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Facturas.Factura_Id)
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="btn--top">
+            <a href="@Url.Action("Index")" class="btn btn--details">Regresar</a>
+        </div>
+    </div>
+</section>
 
-        <dd>
-            @Html.DisplayFor(model => model.Articulos.Descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Facturas.Factura_Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Facturas.Factura_Id)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Factura_Producto_Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

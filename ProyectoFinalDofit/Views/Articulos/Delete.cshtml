@@ -3,94 +3,56 @@
 @{
     ViewBag.Title = "Delete";
 }
+@Styles.Render("~/Content/uza/customStyles")
 
-<h2>Delete</h2>
+<section class="deleteproduct section">
+    <h2>Eliminar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Articulos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </dt>
+    <div class="container">
+        <h3 style="color:red; font-weight: 500;">¿Seguro que desea realizar la eliminación?</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.Codigo)
-        </dd>
+        <dl class="dl-horizontal">
+            <div>
+                <dt>Codigo</dt>
+                <dd>@Html.DisplayFor(model => model.Codigo)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+                <dt>Descripcion</dt>
+                <dd>@Html.DisplayFor(model => model.Descripcion)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+                <dt>Costo unitario</dt>
+                <dd>@Html.DisplayFor(model => model.Costo_Unitario)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Costo_Unitario)
-        </dt>
+                <dt>Cantidad</dt>
+                <dd>@Html.DisplayFor(model => model.Cantidad)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Costo_Unitario)
-        </dd>
+                <dt>Precio venta</dt>
+                <dd>@Html.DisplayFor(model => model.Precio_Venta)</dd>
+            </div>
+            <div>
+                <dt>Total Costo</dt>
+                <dd>@Html.DisplayFor(model => model.Total_Costo)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
+                <dt>Categoria</dt>
+                <dd>@Html.DisplayFor(model => model.Categoria)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cantidad)
-        </dd>
+                <dt>Linea</dt>
+                <dd>@Html.DisplayFor(model => model.Linea)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Precio_Venta)
-        </dt>
+                <dt>Activo</dt>
+                <dd>@Html.DisplayFor(model => model.Activo)</dd>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Precio_Venta)
-        </dd>
+        </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Total_Costo)
-        </dt>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="btn--top">
+                <input type="submit" value="Eliminar" class="btn btn--delete" />
+                <a href="@Url.Action("Index")" class="btn btn--details">Regresar</a>
+            </div>
+        }
+        
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Total_Costo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Categoria)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Linea)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Linea)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Activo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Activo)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+</section>

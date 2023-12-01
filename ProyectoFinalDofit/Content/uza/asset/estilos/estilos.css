@@ -5,7 +5,9 @@
     --color-primario: #069cd2;
     --color-blanco: #ffffff;
     --color-negro: #2A3133;
-    --color-rojo: #ff0101d2;
+    --color-rojo: #e00202d2;
+    --color-verde: #16aa39;
+    --color-amarillo: #f0b607;
 }
 
 * {
@@ -35,7 +37,7 @@ ul {
 a {
     text-decoration: none;
 }
-
+/****** globales  ****/
 .container {
     width: 95%;
     max-width: 1200px;
@@ -43,8 +45,92 @@ a {
 }
 
 .section {
-    padding-top: 2rem;
+    padding: 3.5rem 0;
 }
+
+.btn {
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: var(--color-verde);
+    color: var(--color-blanco);
+    font-size: 1.4rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn--details {
+    background-color: var(--color-amarillo);
+}
+
+.btn--delete {
+    background-color: var(--color-rojo);
+}
+
+.btn--top {
+    margin-top: 2rem;
+}
+/*   formularios   */
+.form {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3rem 2rem;
+    border-radius: 6px;
+    background-color: #2e5b6b;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.form__label {
+    color: var(--color-blanco);
+}
+
+.form__input {
+    padding: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+}
+
+.form--check {
+    background-color: red;
+    text-align: left;
+    width: 20px;
+}
+/*     tablas   */
+.table {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+    .table thead {
+        background-color: var(--color-primario);
+    }
+
+    .table th {
+        padding: 1.8rem 0.5rem;
+        font-weight: 500;
+        color: var(--color-blanco);
+    }
+
+    .table td {
+        padding: 0.3rem 0.5rem;
+    }
+
+
 /****** estilos del login  ******/
 .login {
     width: 100%;
@@ -56,17 +142,18 @@ a {
     background-size: cover;
     position: relative;
 }
-.login::before {
-    content: '';
-    position: absolute;
-    z-index: -9;
-    top: 0;
-    left: 0;
-    display: block;
-    background-color: rgb(0 0 0 /.6);
-    width: 100%;
-    height: 100%;
-}
+
+    .login::before {
+        content: '';
+        position: absolute;
+        z-index: -9;
+        top: 0;
+        left: 0;
+        display: block;
+        background-color: rgb(0 0 0 /.6);
+        width: 100%;
+        height: 100%;
+    }
 
 .login__titles {
     padding-top: 10rem;
@@ -129,9 +216,9 @@ a {
     color: rgb(255 255 255 /.7);
 }
 
-.login__forgot:hover {
-    color: #fff;
-}
+    .login__forgot:hover {
+        color: #fff;
+    }
 
 .login__btn {
     margin-top: 2rem;
@@ -157,12 +244,10 @@ a {
     color: rgb(255 255 255 /.8);
 }
 
-.login__new:hover {
-    color: #fff;
-}
-/*********************************/
+    .login__new:hover {
+        color: #fff;
+    }
 /*****  estilos del header  ******/
-
 .header {
     width: 100%;
     height: 7rem;
@@ -171,12 +256,12 @@ a {
     background-color: var(--color-blanco);
 }
 
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    align-items: center;
-}
+    .header .container {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+    }
 
 @media screen and (max-width:1023px) {
     .header__nav {
@@ -213,9 +298,9 @@ a {
     gap: 0.2rem;
 }
 
-.header__link:hover {
-    color: var(--color-primario)
-}
+    .header__link:hover {
+        color: var(--color-primario)
+    }
 
 .header__link--color {
     color: var(--color-primario);
@@ -228,21 +313,21 @@ a {
     gap: 1.2rem;
 }
 
-.header__user p {
-    display: flex;
-    align-items: center;
-    color: var(--color-negro);
-}
+    .header__user p {
+        display: flex;
+        align-items: center;
+        color: var(--color-negro);
+    }
 
-.header__user a {
-    color: var(--color-rojo);
-    display: flex;
-    align-items: center;
-}
+    .header__user a {
+        color: var(--color-rojo);
+        display: flex;
+        align-items: center;
+    }
 
-.header__user a:hover {
-    text-decoration: underline;
-}
+        .header__user a:hover {
+            text-decoration: underline;
+        }
 
 .header__icon-menu {
     cursor: pointer;
@@ -272,24 +357,24 @@ a {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.panel__card:nth-child(1) {
-    background-color: var(--color-primario);
-}
+    .panel__card:nth-child(1) {
+        background-color: var(--color-primario);
+    }
 
-.panel__card:nth-child(2) {
-    background-color: #065BD1;
-    color: var(--color-blanco);
-}
+    .panel__card:nth-child(2) {
+        background-color: #065BD1;
+        color: var(--color-blanco);
+    }
 
-.panel__card:nth-child(3) {
-    background-color: #4D9066;
-    color: var(--color-blanco);
-}
+    .panel__card:nth-child(3) {
+        background-color: #4D9066;
+        color: var(--color-blanco);
+    }
 
-.panel__card:nth-child(4) {
-    background-color: #5565AE;
-    color: var(--color-blanco);
-}
+    .panel__card:nth-child(4) {
+        background-color: #5565AE;
+        color: var(--color-blanco);
+    }
 
 .panel__title {
     display: flex;
@@ -306,8 +391,77 @@ a {
     font-size: 3.5rem;
 }
 
+/******* estilos de productos ********/
+.product__h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
 
-/***** responsive lg ::after 1024px *********/
+/** crear producto  **/
+.newproduct {
+    text-align: center;
+}
+
+    .newproduct form {
+        display: grid;
+    }
+/** editar producto **/
+.editproduct {
+    text-align: center;
+}
+
+    .editproduct form {
+        display: grid;
+    }
+/** detalles producto  **/
+.detailsproduct {
+    text-align: center;
+}
+
+.dl-horizontal {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 2rem;
+    background-color: var(--color-primario);
+    background-color: #2e5b6b;
+    padding: 2rem;
+    border-radius: 6px;
+    color: var(--color-blanco);
+    display: grid;
+}
+
+    .dl-horizontal dt {
+        font-weight: 600;
+    }
+
+    .dl-horizontal dd {
+        margin-bottom: 2rem;
+        color: #dbdbdb;
+    }
+/** eliminar producto  **/
+.deleteproduct {
+    text-align: center;
+}
+
+
+/***** responsive md : 768px *********/
+@media screen and (min-width:768px) {
+    .newproduct form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .editproduct form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dl-horizontal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/***** responsive lg : 1024px *********/
 @media screen and (min-width:1024px) {
     .header {
         height: 9rem;

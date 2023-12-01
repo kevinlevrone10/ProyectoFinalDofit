@@ -4,55 +4,56 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@Styles.Render("~/Content/uza/customStyles")
 
-<div>
-    <h4>Facturas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Numero_Factura)
-        </dt>
+<section class="detailsproduct section">
+    <h2>Detalles de Factura</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Numero_Factura)
-        </dd>
+    <div class="container">
+        <div>
+            <dl class="dl-horizontal">
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Numero_Factura)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Numero_Factura)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Fecha)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Proveedores.Nombre)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Proveedores.Nombre)
+                    </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Proveedores.Nombre)
-        </dt>
+                <div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Tipo_Movimientos.Descripcion)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Tipo_Movimientos.Descripcion)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Proveedores.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo_Movimientos.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo_Movimientos.Descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Trabajadores.Codigo)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Factura_Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Trabajadores.Codigo)
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="btn--top">
+            <a href="@Url.Action("Index")" class="btn btn--details">Regresar</a>
+        </div>
+    </div>
+</section>
