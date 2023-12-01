@@ -349,6 +349,7 @@
     <Content Include="Views\Visitas\Details.cshtml" />
     <Content Include="Views\Visitas\Edit.cshtml" />
     <Content Include="Views\Visitas\Index.cshtml" />
+    <Content Include="Views\Shared\_layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
