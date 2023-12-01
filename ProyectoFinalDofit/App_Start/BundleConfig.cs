@@ -31,6 +31,8 @@ namespace ProyectoFinalDofit
 
        bundles.Add(new ScriptBundle("~/Content/uza/customScript").Include("~/Content/uza/asset/js/app.js"));
 
+       bundles.Add(new ScriptBundle("~/Content/src/customStyles").Include("~/Content/src/estilos/estiloslanding.css", "~/Content/src/estilos/normalize.css"));
+
 
 
 

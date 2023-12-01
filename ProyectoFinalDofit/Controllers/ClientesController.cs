@@ -8,7 +8,7 @@ namespace ProyectoFinalDofit.Controllers
 {
     public class ClientesController : Controller
     {
-        private GimnasiofitEntities db = new GimnasiofitEntities();
+        private GimnasiofitEntities1 db = new GimnasiofitEntities1();
 
         // GET: Clientes
         public ActionResult Index()

@@ -14,13 +14,7 @@ namespace ProyectoFinalDofit.Models
     
     public partial class Suscripciones
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Suscripciones()
-        {
-            this.Visitas = new HashSet<Visitas>();
-        }
-    
-        public string Suscripcion_Id { get; set; }
+        public Nullable<int> Suscripcion_Id { get; set; }
         public int Numero_Suscripcion { get; set; }
         public System.DateTime Fecha_Inicio { get; set; }
         public System.DateTime Fecha_Finalizacion { get; set; }
@@ -30,11 +24,10 @@ namespace ProyectoFinalDofit.Models
         public int Cliente_Id { get; set; }
         public int Plan_Clientes_Id { get; set; }
         public int Trabajador_Id { get; set; }
+        public Nullable<int> New_Suscripcion_Id { get; set; }
     
         public virtual Clientes Clientes { get; set; }
         public virtual Plan_Clientes Plan_Clientes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Visitas> Visitas { get; set; }
         public virtual Trabajadores Trabajadores { get; set; }
     }
 }

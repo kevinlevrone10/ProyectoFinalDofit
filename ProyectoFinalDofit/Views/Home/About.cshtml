@@ -1,9 +1,256 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Gimnasio Vitality</title>
+    <link rel="stylesheet" href="src/estilos/normalize.css">
+    <link rel="stylesheet" href="src/estilos/estilosLanding.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img width="200" height="300" src="https://i.postimg.cc/fTCMPmNv/Logo-gym.webp" alt="">
+            </div>
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__item"><a class="menu__link selected" href="#hero">Inicio</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#about">Nosotros</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#memberships">Membresias</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#contactos">Contactos</a></li>
+                </ul>
+                <div class="menu__register">
+                    <a class="menu__link" href="#">Ingresar</a>
+                </div>
+            </nav>
+            <div class="navMenu">
+                <svg width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 6l16 0" />
+                    <path d="M4 12l16 0" />
+                    <path d="M4 18l16 0" />
+                </svg>
+            </div>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__txt">
+                        <h1 class="hero__h1">Transforma tu cuerpo con ejercicios perfectos en gimnasio vitality.</h1>
+                        <p class="hero__p">
+                            Siempre estamos ahí para ayudarte a tener un cuerpo y una mente sana a través del poder del fitness.
+                        </p>
+                        <a href="#" class="btn btn--block">Empezar</a>
+
+                        <div class="hero__number">
+                            <div class="hero__expert">
+                                <h2>7+</h2>
+                                <p>Entrenadores expertos</p>
+                            </div>
+                            <div class="hero__expert">
+                                <h2>188+</h2>
+                                <p>Miembros activos</p>
+                            </div>
+                            <div class="hero__expert">
+                                <h2>12+</h2>
+                                <p>Programas fitness</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hero__picture">
+                        <img class="hero__img" width="200px" height="300px" src="https://i.postimg.cc/FHknSXDJ/img-hero.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about__content">
+                    <div class="about__txt">
+                        <h2 class="about__h2">Prepárate para alcanzar tus objetivos de fitness</h2>
+                        <p class="about__p">
+                            Embárcate en un viaje transformador hacia tus metas fitness en Gimnasio Vitality. Descubre un espacio diseñado para potenciar tu fuerza, resistencia y bienestar. Con entrenamientos personalizados, equipo de vanguardia y un ambiente inspirador, estamos aquí para impulsarte en cada paso hacia tus objetivos.
+                        </p>
+                        <br>
+                        <p class="about__p">
+                            Prepárate para superar tus límites y alcanzar la mejor versión de ti mismo en Gimnasio Vitality.
+                        </p>
+                        <a href="3" class="btn">Prueba Gratuita Hoy</a>
+                    </div>
+                    <div class="about__picture">
+                        <img class="about__img" src="https://i.postimg.cc/k4qjL69x/about-img.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="program section">
+            <div class="container">
+                <h2 class="program__h2">Los mejores programas que ofrecemos para ti.</h2>
+                <div class="program__content">
+                    <div class="program__card">
+                        <svg width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M2 12h1" />
+                            <path d="M6 8h-2a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h2" />
+                            <path d="M6 7v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-10a1 1 0 0 0 -1 -1h-1a1 1 0 0 0 -1 1z" />
+                            <path d="M9 12h6" />
+                            <path d="M15 7v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-10a1 1 0 0 0 -1 -1h-1a1 1 0 0 0 -1 1z" />
+                            <path d="M18 8h2a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-2" />
+                            <path d="M22 12h-1" />
+                        </svg>
+
+                        <h3 class="program__h3">Entrenamiento de fuerza</h3>
+                        <p class="program__p">Descubre tu potencial con nuestro entrenamiento de fuerza, esculpiendo músculos y mejorando tu resistencia en Gimnasio Vitality.</p>
+                    </div>
+                    <div class="program__card">
+                        <svg width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 4m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            <path d="M4 20h4l1.5 -3" />
+                            <path d="M17 20l-1 -5h-5l1 -7" />
+                            <path d="M4 10l4 -1l4 -1l4 1.5l4 1.5" />
+                        </svg>
+                        <h3 class="program__h3">Yoga Básico</h3>
+                        <p class="program__p">Encuentra equilibrio y serenidad en nuestras clases de Yoga Básico, diseñadas para todos los niveles en Gimnasio Vitality.</p>
+                    </div>
+                    <div class="program__card">
+                        <svg width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 7a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+                            <path d="M13 21l1 -9l7 -6" />
+                            <path d="M3 11h6l5 1" />
+                            <path d="M11.5 8.5l4.5 -3.5" />
+                        </svg>
+
+                        <h3 class="program__h3">Culturismo</h3>
+                        <p class="program__p">Define tu cuerpo y desarrolla músculos magros con nuestro programa de culturismo en Gimnasio Vitality, desafiando tus límites.</p>
+                    </div>
+                    <div class="program__card">
+                        <svg width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M6.835 9h10.33a1 1 0 0 1 .984 .821l1.637 9a1 1 0 0 1 -.984 1.179h-13.604a1 1 0 0 1 -.984 -1.179l1.637 -9a1 1 0 0 1 .984 -.821z" />
+                        </svg>
+                        <h3 class="program__h3">Pérdida de Peso</h3>
+                        <p class="program__p">Alcanza tus metas de peso de manera saludable con el respaldo de Gimnasio Vitality, integrando actividad física y nutrición.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="memberships section" id="memberships">
+            <div class="container">
+                <h2 class="memberships__h2">Elige el mejor plan</h2>
+                <div class="memberships__content">
+                    <!-- card 1 -->
+                    <div class="memberships__card">
+                        <h3 class="memberships__h3">Básica</h3>
+                        <div class="memberships__price">
+                            <h4>$10</h4>
+                            <p>/ Por mes</p>
+                        </div>
+                        <div class="memberships__options basica">
+                            <p>Acceo a las instalaciones.</p>
+                            <p>Participacion en clases grupales.</p>
+                            <p>Sin acceso a servicios premium.</p>
+                            <p>No incluye clases especializadas.</p>
+                        </div>
+                        <a href="#" class="memberships__btn">Elegir Plan</a>
+                    </div>
+                    <!-- card 2 -->
+                    <div class="memberships__card">
+                        <h3 class="memberships__h3">Familiar</h3>
+                        <div class="memberships__price">
+                            <h4>$45</h4>
+                            <p>/ Por mes</p>
+                        </div>
+                        <div class="memberships__options">
+                            <p>Acceso a todos los miembros de la familia</p>
+                            <p>Descuentos en membresías individuales.</p>
+                            <p>Participación en eventos y actividades.</p>
+                            <p>Flexibilidad en el número de miembros.</p>
+                            <p>Fomentar un estilo de vida activo en familia.</p>
+                        </div>
+                        <a href="#" class="memberships__btn btn--familiar">Elegir Plan</a>
+                    </div>
+                    <!-- card 3 -->
+                    <div class="memberships__card">
+                        <h3 class="memberships__h3">Premium</h3>
+                        <div class="memberships__price">
+                            <h4>$32</h4>
+                            <p>/ Por mes</p>
+                        </div>
+                        <div class="memberships__options premium">
+                            <p>Acceso ilimitado a instalaciones.</p>
+                            <p>Clases especializadas con horarios flexibles.</p>
+                            <p>Sesiones personalizadas con expertos.</p>
+                            <p>No participa en eventos y actividades.</p>
+                        </div>
+                        <a href="#" class="memberships__btn">Elegir Plan</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <footer class="footer" id="contactos">
+            <div class="container">
+                <div class="footer__content">
+                    <img class="" src="src/img/Logo-gym.webp" alt="">
+
+                    <div class="footer__sociales">
+                        <div>
+                            <a href="#">
+                                <svg width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" stroke-width="0" fill="currentColor" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <svg width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <svg width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" stroke-width="0" fill="currentColor" />
+                                    <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" stroke-width="0" fill="currentColor" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <svg width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                                    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__copy">
+                    <p>
+                        Copyright © 2023 Gimnasio Vitality.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>const iconMenu = document.querySelector('.navMenu');
+        const menu = document.querySelector('.menu');
+
+        iconMenu.addEventListener('click', ()=> menu.classList.toggle('toggle'));</script>
+</body>
+</html>

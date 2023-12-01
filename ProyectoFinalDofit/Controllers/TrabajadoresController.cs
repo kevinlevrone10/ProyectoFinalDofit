@@ -9,7 +9,7 @@ namespace ProyectoFinalDofit.Controllers
     [Authorize]
     public class TrabajadoresController : Controller
     {
-        private GimnasiofitEntities db = new GimnasiofitEntities();
+        private GimnasiofitEntities1 db = new GimnasiofitEntities1();
 
         // GET: Trabajadores
         public ActionResult Index()

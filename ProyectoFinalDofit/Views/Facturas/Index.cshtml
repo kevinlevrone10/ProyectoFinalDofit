@@ -4,54 +4,164 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero_Factura)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Proveedores.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo_Movimientos.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trabajadores.Codigo)
-        </th>
-        <th></th>
-    </tr>
+<style>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero_Factura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proveedores.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo_Movimientos.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trabajadores.Codigo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Factura_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Factura_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Factura_Id })
-        </td>
-    </tr>
-}
+    :root {
+        --color-fondo: #EBF1F4;
+        --color-primario: #069cd2;
+        --color-blanco: #ffffff;
+        --color-negro: #2A3133;
+        --color-rojo: #e00202d2;
+        --color-verde: #16aa39;
+        --color-amarillo: #f0b607;
+    }
 
-</table>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 62.5%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        font-size: 1.6rem;
+        background-color: var(--color-fondo);
+    }
+
+    h1, h2, h3 {
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    /****** globales  ****/
+    .container {
+        width: 95%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: var(--color-verde);
+        color: var(--color-blanco);
+        font-size: 1.4rem;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn--details {
+        background-color: var(--color-amarillo);
+    }
+
+    .btn--delete {
+        background-color: var(--color-rojo);
+    }
+
+    .btn--top {
+        margin-top: 2rem;
+    }
+    /*     tablas   */
+    .table {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: left;
+    }
+
+        .table thead {
+            background-color: #069cd2;
+        }
+
+        .table th {
+            padding: 18px 5px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .table td {
+            padding: 3px 5px;
+        }
+
+    .product__h2 {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<section class="factura section">
+    <div class="container">
+        <h2 class="factura__h2">Facturas</h2>
+
+        @Html.ActionLink("Crear Nueva Factura", "Create", null, new { @class = "btn" })
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Número Factura
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th>
+                        Proveedor
+                    </th>
+                    <th>
+                        Tipo de Movimiento
+                    </th>
+                    <th>
+                        Código Trabajador
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Numero_Factura)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Proveedores.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tipo_Movimientos.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Trabajadores.Codigo)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Factura_Id }, new { @class = "btn" })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.Factura_Id }, new { @class = "btn btn--details" })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.Factura_Id }, new { @class = "btn btn--delete" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -13,10 +13,10 @@ namespace ProyectoFinalDofit.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GimnasiofitEntities : DbContext
+    public partial class GimnasiofitEntities1 : DbContext
     {
-        public GimnasiofitEntities()
-            : base("name=GimnasiofitEntities")
+        public GimnasiofitEntities1()
+            : base("name=GimnasiofitEntities1")
         {
         }
     
@@ -32,10 +32,11 @@ namespace ProyectoFinalDofit.Models
         public virtual DbSet<Plan_Clientes> Plan_Clientes { get; set; }
         public virtual DbSet<Proveedores> Proveedores { get; set; }
         public virtual DbSet<Sexo> Sexo { get; set; }
-        public virtual DbSet<Suscripciones> Suscripciones { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tipo_Movimientos> Tipo_Movimientos { get; set; }
         public virtual DbSet<Trabajadores> Trabajadores { get; set; }
         public virtual DbSet<Turnos> Turnos { get; set; }
         public virtual DbSet<Visitas> Visitas { get; set; }
+        public virtual DbSet<Suscripciones> Suscripciones { get; set; }
     }
 }

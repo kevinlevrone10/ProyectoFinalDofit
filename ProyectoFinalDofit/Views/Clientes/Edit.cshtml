@@ -4,73 +4,54 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+@Styles.Render("~/Content/uza/customStyles")
+
+<section class="editproduct section">
+    <div class="container">
+        <h2>Editar</h2>
+
+        <form action="@Url.Action("Edit", "Clientes")" class="form" method="post">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Cliente_Id)
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Clientes</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Cliente_Id)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            <div class="form__group">
+                <label class="form__label" for="Nombre">Nombre</label>
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form__input" } })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+            <div class="form__group">
+                <label class="form__label" for="Apellido">Apellido</label>
+                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form__input" } })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
+            <div class="form__group">
+                <label class="form__label" for="Cedula">Cedula</label>
+                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form__input" } })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sexo_Id, "Sexo_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Sexo_Id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Sexo_Id, "", new { @class = "text-danger" })
+            <div class="form__group">
+                <label class="form__label" for="Sexo_Id">Sexo</label>
+                @Html.DropDownListFor(model => model.Sexo_Id, ViewBag.SexoList as SelectList, new { @class = "form__input" })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="form__group">
+                <label class="form__label" for="Activo">Activo</label>
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Activo)
                     @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Guardar" class="btn" />
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+            }
+        </form>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <div>
+        <a href="@Url.Action("Index")" class="btn btn--details">Regresar</a>
+    </div>
+</section>

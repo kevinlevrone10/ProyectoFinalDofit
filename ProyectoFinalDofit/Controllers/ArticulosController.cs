@@ -10,7 +10,7 @@ namespace ProyectoFinalDofit.Controllers
     
     public class ArticulosController : Controller
     {
-        private GimnasiofitEntities db = new GimnasiofitEntities();
+        private GimnasiofitEntities1 db = new GimnasiofitEntities1();
 
         // GET: Articulos
         public ActionResult Index()

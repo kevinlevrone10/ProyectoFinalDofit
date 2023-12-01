@@ -1,14 +1,18 @@
-﻿using ProyectoFinalDofit.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using ProyectoFinalDofit.Models;
 
 namespace ProyectoFinalDofit.Controllers
 {
     public class SuscripcionesController : Controller
     {
-        private GimnasiofitEntities db = new GimnasiofitEntities();
+        private GimnasiofitEntities1 db = new GimnasiofitEntities1();
 
         // GET: Suscripciones
         public ActionResult Index()
@@ -18,7 +22,7 @@ namespace ProyectoFinalDofit.Controllers
         }
 
         // GET: Suscripciones/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -46,7 +50,7 @@ namespace ProyectoFinalDofit.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Suscripcion_Id,Numero_Suscripcion,Fecha_Inicio,Fecha_Finalizacion,Costo,Descuento,Activo,Cliente_Id,Plan_Clientes_Id,Trabajador_Id")] Suscripciones suscripciones)
+        public ActionResult Create([Bind(Include = "Suscripcion_Id,Numero_Suscripcion,Fecha_Inicio,Fecha_Finalizacion,Costo,Descuento,Activo,Cliente_Id,Plan_Clientes_Id,Trabajador_Id,New_Suscripcion_Id")] Suscripciones suscripciones)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +66,7 @@ namespace ProyectoFinalDofit.Controllers
         }
 
         // GET: Suscripciones/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -84,7 +88,7 @@ namespace ProyectoFinalDofit.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Suscripcion_Id,Numero_Suscripcion,Fecha_Inicio,Fecha_Finalizacion,Costo,Descuento,Activo,Cliente_Id,Plan_Clientes_Id,Trabajador_Id")] Suscripciones suscripciones)
+        public ActionResult Edit([Bind(Include = "Suscripcion_Id,Numero_Suscripcion,Fecha_Inicio,Fecha_Finalizacion,Costo,Descuento,Activo,Cliente_Id,Plan_Clientes_Id,Trabajador_Id,New_Suscripcion_Id")] Suscripciones suscripciones)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +103,7 @@ namespace ProyectoFinalDofit.Controllers
         }
 
         // GET: Suscripciones/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -116,7 +120,7 @@ namespace ProyectoFinalDofit.Controllers
         // POST: Suscripciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Suscripciones suscripciones = db.Suscripciones.Find(id);
             db.Suscripciones.Remove(suscripciones);

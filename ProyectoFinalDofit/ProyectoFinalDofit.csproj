@@ -179,7 +179,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SuscripcionesController.cs" />
     <Compile Include="Controllers\TrabajadoresController.cs" />
-    <Compile Include="Controllers\VisitasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,6 +224,9 @@
     <Compile Include="Models\Suscripciones.cs">
       <DependentUpon>ModelGym.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ModelGym.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tipo_Movimientos.cs">
       <DependentUpon>ModelGym.tt</DependentUpon>
     </Compile>
@@ -241,6 +243,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\src\estilos\estilosLanding.css" />
+    <Content Include="Content\src\estilos\normalize.css" />
     <Content Include="Content\uza\asset\estilos\estilos.css" />
     <Content Include="Content\uza\asset\estilos\normalize.css" />
     <Content Include="Content\uza\asset\js\app.js" />
@@ -250,6 +254,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\uza\asset\img\fondo-gym.webp" />
+    <Content Include="Content\uza\asset\img\Logo-gym.webp" />
+    <EntityDeploy Include="Models\ModelGym.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelGym.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelGym.edmx.diagram">
+      <DependentUpon>ModelGym.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\ModelGym.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelGym.edmx</DependentUpon>
@@ -260,16 +274,6 @@
       <DependentUpon>ModelGym.edmx</DependentUpon>
       <LastGenOutput>ModelGym.cs</LastGenOutput>
     </Content>
-    <Content Include="Content\uza\asset\img\fondo-gym.webp" />
-    <EntityDeploy Include="Models\ModelGym.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelGym.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ModelGym.edmx.diagram">
-      <DependentUpon>ModelGym.edmx</DependentUpon>
-    </Content>
-    <Content Include="Content\uza\asset\img\Logo-gym.webp" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -324,11 +328,6 @@
     <Content Include="Views\Trabajadores\Details.cshtml" />
     <Content Include="Views\Trabajadores\Edit.cshtml" />
     <Content Include="Views\Trabajadores\Index.cshtml" />
-    <Content Include="Views\Suscripciones\Create.cshtml" />
-    <Content Include="Views\Suscripciones\Delete.cshtml" />
-    <Content Include="Views\Suscripciones\Details.cshtml" />
-    <Content Include="Views\Suscripciones\Edit.cshtml" />
-    <Content Include="Views\Suscripciones\Index.cshtml" />
     <Content Include="Views\Articulos\Create.cshtml" />
     <Content Include="Views\Articulos\Delete.cshtml" />
     <Content Include="Views\Articulos\Details.cshtml" />
@@ -344,12 +343,12 @@
     <Content Include="Views\Factura_Productos\Details.cshtml" />
     <Content Include="Views\Factura_Productos\Edit.cshtml" />
     <Content Include="Views\Factura_Productos\Index.cshtml" />
-    <Content Include="Views\Visitas\Create.cshtml" />
-    <Content Include="Views\Visitas\Delete.cshtml" />
-    <Content Include="Views\Visitas\Details.cshtml" />
-    <Content Include="Views\Visitas\Edit.cshtml" />
-    <Content Include="Views\Visitas\Index.cshtml" />
     <Content Include="Views\Shared\_layout2.cshtml" />
+    <Content Include="Views\Suscripciones\Create.cshtml" />
+    <Content Include="Views\Suscripciones\Delete.cshtml" />
+    <Content Include="Views\Suscripciones\Details.cshtml" />
+    <Content Include="Views\Suscripciones\Edit.cshtml" />
+    <Content Include="Views\Suscripciones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

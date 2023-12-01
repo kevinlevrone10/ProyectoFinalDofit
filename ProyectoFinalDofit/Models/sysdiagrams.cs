@@ -12,13 +12,12 @@ namespace ProyectoFinalDofit.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Visitas
+    public partial class sysdiagrams
     {
-        public int Visita_Id { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public string Suscripcion_Id { get; set; }
-        public int Trabajador_Id { get; set; }
-    
-        public virtual Trabajadores Trabajadores { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

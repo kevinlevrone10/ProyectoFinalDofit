@@ -4,19 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="62a51ca02ecd4250877ce186bfebd8a7" Name="Diagram1">
-        <EntityTypeShape EntityType="GimnasiofitModel.Articulos" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Clientes" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Factura_Productos" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Facturas" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Plan_Clientes" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Proveedores" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Sexo" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Suscripciones" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Tipo_Movimientos" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Trabajadores" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Turnos" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GimnasiofitModel.Visitas" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
+      <Diagram DiagramId="2e53ca62b7d34dfe9175106ca7506483" Name="Diagram1">
+        <EntityTypeShape EntityType="GimnasiofitModel.Articulos" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Clientes" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Factura_Productos" Width="1.5" PointX="10.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Facturas" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Plan_Clientes" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Proveedores" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Sexo" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Tipo_Movimientos" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Trabajadores" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Turnos" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Visitas" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasiofitModel.Suscripciones" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="GimnasiofitModel.RefArticulo44" ManuallyRouted="false" />
         <AssociationConnector Association="GimnasiofitModel.FK_Sexo" ManuallyRouted="false" />
         <AssociationConnector Association="GimnasiofitModel.RefCliente14" ManuallyRouted="false" />
@@ -25,7 +26,6 @@
         <AssociationConnector Association="GimnasiofitModel.RefTipo_Movimiento41" ManuallyRouted="false" />
         <AssociationConnector Association="GimnasiofitModel.RefTrabajador37" ManuallyRouted="false" />
         <AssociationConnector Association="GimnasiofitModel.RefPlan_Clientes15" ManuallyRouted="false" />
-        <AssociationConnector Association="GimnasiofitModel.RefSuscripcion19" ManuallyRouted="false" />
         <AssociationConnector Association="GimnasiofitModel.RefTrabajador16" ManuallyRouted="false" />
         <AssociationConnector Association="GimnasiofitModel.RefTrabajador20" ManuallyRouted="false" />
         <AssociationConnector Association="GimnasiofitModel.RefTurno36" ManuallyRouted="false" />
